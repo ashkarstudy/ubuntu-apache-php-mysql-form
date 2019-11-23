@@ -1,5 +1,10 @@
 1) create docker network named as aws-ecs
 
+docker network create  --driver=bridge --subnet=10.10.0.0/16 aws-ecs 
+
+cd ubuntu
+
+docker image build -it myubuntu:latest ./
 
  docker run -d -e MYSQL_ROOT_PASSWORD=abc123 --name mydb --net aws-ecs -p 3306:3306 -v  "$PWD/mysql":/var/lib/mysql mysql:latest
 
